@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Full Deck Card Fan Animation</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      overflow: hidden;
+    }
+
+    .card-fan {
+      position: relative;
+      width: 100px;
+      height: 150px;
+      perspective: 1500px;
+    }
+
+    .card {
+      position: absolute;
+      width: 80px;
+      height: 120px;
+      background-color: #fff;
+      border: 2px solid #333;
+      border-radius: 6px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+      transition: transform 1s ease, z-index 0.5s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      color: #333;
+      transform-origin: center 400px; /* Consistent transform origin */
+      transform: translate(0, 0) rotate(0deg);
+      z-index: 1;
+    }
+
+    .card-fan:hover .card {
+      z-index: 10;
+    }
+
+    /* Hover rotation for each card */
+    .card-fan:hover .card:nth-child(1) { transform: rotate(-54deg); }
+    .card-fan:hover .card:nth-child(2) { transform: rotate(-52deg); }
+    .card-fan:hover .card:nth-child(3) { transform: rotate(-50deg); }
+    .card-fan:hover .card:nth-child(4) { transform: rotate(-48deg); }
+    .card-fan:hover .card:nth-child(5) { transform: rotate(-46deg); }
+    .card-fan:hover .card:nth-child(6) { transform: rotate(-44deg); }
+    .card-fan:hover .card:nth-child(7) { transform: rotate(-42deg); }
+    .card-fan:hover .card:nth-child(8) { transform: rotate(-40deg); }
+    .card-fan:hover .card:nth-child(9) { transform: rotate(-38deg); }
+    .card-fan:hover .card:nth-child(10) { transform: rotate(-36deg); }
+    .card-fan:hover .card:nth-child(11) { transform: rotate(-34deg); }
+    .card-fan:hover .card:nth-child(12) { transform: rotate(-32deg); }
+    .card-fan:hover .card:nth-child(13) { transform: rotate(-30deg); }
+    .card-fan:hover .card:nth-child(14) { transform: rotate(-28deg); }
+    .card-fan:hover .card:nth-child(15) { transform: rotate(-26deg); }
+    .card-fan:hover .card:nth-child(16) { transform: rotate(-24deg); }
+    .card-fan:hover .card:nth-child(17) { transform: rotate(-22deg); }
+    .card-fan:hover .card:nth-child(18) { transform: rotate(-20deg); }
+    .card-fan:hover .card:nth-child(19) { transform: rotate(-18deg); }
+    .card-fan:hover .card:nth-child(20) { transform: rotate(-16deg); }
+    .card-fan:hover .card:nth-child(21) { transform: rotate(-14deg); }
+    .card-fan:hover .card:nth-child(22) { transform: rotate(-12deg); }
+    .card-fan:hover .card:nth-child(23) { transform: rotate(-10deg); }
+    .card-fan:hover .card:nth-child(24) { transform: rotate(-8deg); }
+    .card-fan:hover .card:nth-child(25) { transform: rotate(-6deg); }
+    .card-fan:hover .card:nth-child(26) { transform: rotate(-4deg); }
+    .card-fan:hover .card:nth-child(27) { transform: rotate(-2deg); }
+    .card-fan:hover .card:nth-child(28) { transform: rotate(0deg); }
+    .card-fan:hover .card:nth-child(29) { transform: rotate(2deg); }
+    .card-fan:hover .card:nth-child(30) { transform: rotate(4deg); }
+    .card-fan:hover .card:nth-child(31) { transform: rotate(6deg); }
+    .card-fan:hover .card:nth-child(32) { transform: rotate(8deg); }
+    .card-fan:hover .card:nth-child(33) { transform: rotate(10deg); }
+    .card-fan:hover .card:nth-child(34) { transform: rotate(12deg); }
+    .card-fan:hover .card:nth-child(35) { transform: rotate(14deg); }
+    .card-fan:hover .card:nth-child(36) { transform: rotate(16deg); }
+    .card-fan:hover .card:nth-child(37) { transform: rotate(18deg); }
+    .card-fan:hover .card:nth-child(38) { transform: rotate(20deg); }
+    .card-fan:hover .card:nth-child(39) { transform: rotate(22deg); }
+    .card-fan:hover .card:nth-child(40) { transform: rotate(24deg); }
+    .card-fan:hover .card:nth-child(41) { transform: rotate(26deg); }
+    .card-fan:hover .card:nth-child(42) { transform: rotate(28deg); }
+    .card-fan:hover .card:nth-child(43) { transform: rotate(30deg); }
+    .card-fan:hover .card:nth-child(44) { transform: rotate(32deg); }
+    .card-fan:hover .card:nth-child(45) { transform: rotate(34deg); }
+    .card-fan:hover .card:nth-child(46) { transform: rotate(36deg); }
+    .card-fan:hover .card:nth-child(47) { transform: rotate(38deg); }
+    .card-fan:hover .card:nth-child(48) { transform: rotate(40deg); }
+    .card-fan:hover .card:nth-child(49) { transform: rotate(42deg); }
+    .card-fan:hover .card:nth-child(50) { transform: rotate(44deg); }
+    .card-fan:hover .card:nth-child(51) { transform: rotate(46deg); }
+    .card-fan:hover .card:nth-child(52) { transform: rotate(48deg); }
+    .card-fan:hover .card:nth-child(53) { transform: rotate(50deg); }
+    .card-fan:hover .card:nth-child(54) { transform: rotate(52deg); }
+  </style>
+</head>
+<body>
+  <div class="card-fan">
+    <div class="card">A♠</div>
+    <div class="card">2♠</div>
+    <div class="card">3♠</div>
+    <div class="card">4♠</div>
+    <div class="card">5♠</div>
+    <div class="card">6♠</div>
+    <div class="card">7♠</div>
+    <div class="card">8♠</div>
+    <div class="card">9♠</div>
+    <div class="card">10♠</div>
+    <div class="card">J♠</div>
+    <div class="card">Q♠</div>
+    <div class="card">K♠</div>
+    <div class="card">A♥</div>
+    <div class="card">2♥</div>
+    <div class="card">3♥</div>
+    <div class="card">4♥</div>
+    <div class="card">5♥</div>
+    <div class="card">6♥</div>
+    <div class="card">7♥</div>
+    <div class="card">8♥</div>
+    <div class="card">9♥</div>
+    <div class="card">10♥</div>
+    <div class="card">J♥</div>
+    <div class="card">Q♥</div>
+    <div class="card">K♥</div>
+    <div class="card">A♣</div>
+    <div class="card">2♣</div>
+    <div class="card">3♣</div>
+    <div class="card">4♣</div>
+    <div class="card">5♣</div>
+    <div class="card">6♣</div>
+    <div class="card">7♣</div>
+    <div class="card">8♣</div>
+    <div class="card">9♣</div>
+    <div class="card">10♣</div>
+    <div class="card">J♣</div>
+    <div class="card">Q♣</div>
+    <div class="card">K♣</div>
+    <div class="card">A♦</div>
+    <div class="card">2♦</div>
+    <div class="card">3♦</div>
+    <div class="card">4♦</div>
+    <div class="card">5♦</div>
+    <div class="card">6♦</div>
+    <div class="card">7♦</div>
+    <div class="card">8♦</div>
+    <div class="card">9♦</div>
+    <div class="card">10♦</div>
+    <div class="card">J♦</div>
+    <div class="card">Q♦</div>
+    <div class="card">K♦</div>
+    <div class="card">Joker</div>
+    <div class="card">Joker</div>
+  </div>
+</body>
+</html>

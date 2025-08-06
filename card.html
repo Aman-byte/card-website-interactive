@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Full Deck of Cards</title>
+  <style>
+    body {
+      background-color: #4B0000;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .card-container {
+      perspective: 1000px;
+    }
+
+    .card {
+      width: 100px;
+      height: 140px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s ease;
+    }
+
+    .card-container:hover .card {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+
+    .card-front {
+      background-color: white;
+      color: black;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+      background-image: url('cardback12.png');
+      background-size: 130% auto;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 10px;
+    }
+
+    .corner {
+      position: absolute;
+      font-size: 14px;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .top-left {
+      top: 6px;
+      left: 6px;
+    }
+
+    .bottom-right {
+      bottom: 6px;
+      right: 6px;
+      transform: rotate(180deg);
+    }
+
+    .suit {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 36px;
+    }
+
+    .red {
+      color: #d10000;
+    }
+
+    .black {
+      color: #000;
+    }
+
+    .joker-label {
+      font-size: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .joker-suit {
+      font-size: 30px;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  const suits = [
+    { symbol: '♠', class: 'black' },
+    { symbol: '♥', class: 'red' },
+    { symbol: '♦', class: 'red' },
+    { symbol: '♣', class: 'black' }
+  ];
+
+  const ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+
+  // Generate all 52 cards
+  suits.forEach(({ symbol, class: suitClass }) => {
+    ranks.forEach(rank => {
+      document.write(`
+        <div class="card-container">
+          <div class="card">
+            <div class="card-front">
+              <div class="corner top-left ${suitClass}">
+                <span>${rank}</span>
+                <span>${symbol}</span>
+              </div>
+              <div class="suit ${suitClass}">${symbol}</div>
+              <div class="corner bottom-right ${suitClass}">
+                <span>${rank}</span>
+                <span>${symbol}</span>
+              </div>
+            </div>
+            <div class="card-back"></div>
+          </div>
+        </div>
+      `);
+    });
+  });
+
+  // Add 2 Jokers
+  const jokers = [
+    { color: 'black', label: 'BLACK JOKER', symbol: '★' },
+    { color: 'red', label: 'RED JOKER', symbol: '★' }
+  ];
+
+  jokers.forEach(({ color, label, symbol }) => {
+    document.write(`
+      <div class="card-container">
+        <div class="card">
+          <div class="card-front">
+            <div class="joker-label ${color}">${label}</div>
+            <div class="joker-suit ${color}">${symbol}</div>
+          </div>
+          <div class="card-back"></div>
+        </div>
+      </div>
+    `);
+  });
+</script>
+
+</body>
+</html>
